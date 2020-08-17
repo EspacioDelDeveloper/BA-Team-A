@@ -52,7 +52,7 @@
           <a class="nav-link" href="#">About</a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" href={{ url('/blog') }}>Blog</a>
+          <a class="nav-link" href={{ url('/blog') }}>Blogs</a>
         </li>
         <li class="nav-item active">
           <a class="nav-link" href="#">Contact Us</a>

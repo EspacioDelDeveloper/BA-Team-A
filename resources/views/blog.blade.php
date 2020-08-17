@@ -64,6 +64,6 @@
     </div>
   </nav>
 
-  <h1 class="blogs">Blogs coming soon!</h1>
+  <h1 class="blogs">Blog coming soon!</h1>
 </body>
 </html>
