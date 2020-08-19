@@ -22,7 +22,7 @@
     margin: 0;
   }
 
-  .blogs {
+  .blog {
     background: red;
     background: -webkit-linear-gradient(left, orange , yellow, green, cyan, blue, violet);
     background: -o-linear-gradient(right, orange, yellow, green, cyan, blue, violet);
@@ -64,6 +64,6 @@
     </div>
   </nav>
 
-  <h1 class="blogs">Blog coming soon!</h1>
+  <h1 class="blog">Blog coming soon!</h1>
 </body>
 </html>

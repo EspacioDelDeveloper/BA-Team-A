@@ -18,8 +18,4 @@ Route::get('/', function () {
 });
 
 Route::get('/projects', 'ProjectsController@projects')->name('projects');
-Route::get('/blog', 'BlogController@blogs')->name('blog');
-
-
-
-
+Route::get('/blog', 'BlogController@blog')->name('blog');

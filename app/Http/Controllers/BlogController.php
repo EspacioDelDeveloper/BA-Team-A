@@ -6,10 +6,10 @@ use Illuminate\Http\Request;
 
 class BlogController extends Controller
 {
-    public function blogs()
+    public function blog()
     {
       return view('blog');
     }
 
-    
+
 }
