@@ -48,18 +48,20 @@
       <a class="navbar-brand" href="/">Espacio del Developer</a>
 
       <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+
         <li class="nav-item active">
-          <a class="nav-link" href="#">About</a>
+          <a class="nav-link" href={{ url('/about') }}>About</a>
         </li>
         <li class="nav-item active">
           <a class="nav-link" href={{ url('/blog') }}>Blog</a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" href={{ url('/contact') }}>Contact Us</a>
+          <a class="nav-link" href={{ url('/contact-us') }}>Contact Us</a>
         </li>
         <li class="nav-item active">
           <a class="nav-link" href={{ url('/projects') }}>Projects</a>
         </li>
+
       </ul>
     </div>
   </nav>

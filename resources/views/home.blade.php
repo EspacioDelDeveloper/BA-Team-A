@@ -13,27 +13,27 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
   <style>
-      html, body {
-          background-color: #504e4e;
-          color: #636b6f;
-          font-family: 'Nunito', sans-serif;
-          font-weight: 200;
-          height: 100vh;
-          margin: 0;
-      }
+  html, body {
+    background-color: #504e4e;
+    color: #636b6f;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 200;
+    height: 100vh;
+    margin: 0;
+  }
 
-      .homePage {
-        background: red;
-        background: -webkit-linear-gradient(left, orange , yellow, green, cyan, blue, violet);
-        background: -o-linear-gradient(right, orange, yellow, green, cyan, blue, violet);
-        background: -moz-linear-gradient(right, orange, yellow, green, cyan, blue, violet);
-        background: linear-gradient(to right, orange , yellow, green, cyan, blue, violet);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        font-size: 70px;
-        text-align: center;
-        padding-top: 200px;
-      }
+  .homePage {
+    background: red;
+    background: -webkit-linear-gradient(left, orange , yellow, green, cyan, blue, violet);
+    background: -o-linear-gradient(right, orange, yellow, green, cyan, blue, violet);
+    background: -moz-linear-gradient(right, orange, yellow, green, cyan, blue, violet);
+    background: linear-gradient(to right, orange , yellow, green, cyan, blue, violet);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 70px;
+    text-align: center;
+    padding-top: 200px;
+  }
   </style>
 </head>
 
@@ -48,18 +48,20 @@
       <a class="navbar-brand" href="/">Espacio del Developer</a>
 
       <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+
         <li class="nav-item active">
-          <a class="nav-link" href="#">About</a>
+          <a class="nav-link" href={{ url('/about') }}>About</a>
         </li>
         <li class="nav-item active">
           <a class="nav-link" href={{ url('/blog') }}>Blog</a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" href={{ url('/contact') }}>Contact Us</a>
+          <a class="nav-link" href={{ url('/contact-us') }}>Contact Us</a>
         </li>
         <li class="nav-item active">
           <a class="nav-link" href={{ url('/projects') }}>Projects</a>
         </li>
+
       </ul>
     </div>
   </nav>

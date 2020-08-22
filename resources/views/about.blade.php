@@ -22,7 +22,7 @@
     margin: 0;
   }
 
-  .projects {
+  .about {
     background: red;
     background: -webkit-linear-gradient(left, orange , yellow, green, cyan, blue, violet);
     background: -o-linear-gradient(right, orange, yellow, green, cyan, blue, violet);
@@ -48,23 +48,24 @@
       <a class="navbar-brand" href="/">Espacio del Developer</a>
 
       <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-        
+
+        <li class="nav-item active">
+          <a class="nav-link" href={{ url('/about') }}>About</a>
+        </li>
         <li class="nav-item active">
           <a class="nav-link" href={{ url('/blog') }}>Blog</a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" href={{ url('/contact') }}>Contact Us</a>
+          <a class="nav-link" href={{ url('/contact-us') }}>Contact Us</a>
         </li>
         <li class="nav-item active">
           <a class="nav-link" href={{ url('/projects') }}>Projects</a>
         </li>
-        <li class="nav-item active">
-          <a class="nav-link" href={{ url('/about') }}>About</a>
-        </li>
+
       </ul>
     </div>
   </nav>
 
-  <h1>About</h1>
+  <h1 class="about">About</h1>
 </body>
 </html>
