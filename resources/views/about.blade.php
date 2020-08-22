@@ -48,9 +48,7 @@
       <a class="navbar-brand" href="/">Espacio del Developer</a>
 
       <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">About</a>
-        </li>
+        
         <li class="nav-item active">
           <a class="nav-link" href={{ url('/blog') }}>Blog</a>
         </li>
