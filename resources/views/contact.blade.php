@@ -55,15 +55,18 @@
           <a class="nav-link" href={{ url('/blog') }}>Blog</a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link"href={{ url('/contact') }}>Contact Us</a>
+          <a class="nav-link" href={{ url('/contact') }}>Contact Us</a>
         </li>
         <li class="nav-item active">
           <a class="nav-link" href={{ url('/projects') }}>Projects</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href={{ url('/about') }}>About</a>
         </li>
       </ul>
     </div>
   </nav>
 
-  <h1 class="projects">Projects coming soon!</h1>
+  <h1>Contact Us</h1>
 </body>
 </html>

@@ -20,3 +20,4 @@ Route::get('/', function () {
 Route::get('/projects', 'ProjectsController@projects')->name('projects');
 Route::get('/blog', 'BlogController@blog')->name('blog');
 Route::get('/about', 'AboutController@about')->name('about');
+Route::get('/contact', 'ContactController@contact')->name('contact');

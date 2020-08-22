@@ -55,7 +55,7 @@
           <a class="nav-link" href={{ url('/blog') }}>Blog</a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" href="#">Contact Us</a>
+          <a class="nav-link" href={{ url('/contact') }}>Contact Us</a>
         </li>
         <li class="nav-item active">
           <a class="nav-link" href={{ url('/projects') }}>Projects</a>
