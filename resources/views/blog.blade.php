@@ -61,8 +61,6 @@
         <li class="nav-item active">
           <a class="nav-link" href={{ url('/projects') }}>Projects</a>
         </li>
-
-        <h2>Prueba de rama Develop</h2>
       </ul>
     </div>
   </nav>
