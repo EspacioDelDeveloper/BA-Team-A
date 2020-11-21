@@ -64,23 +64,38 @@
 
       </ul>
 
-      <ul class="navbar-nav my-2 my-lg-0">
-        <li class="nav-item active">
-          <a class="nav-link" href={{ url('/login') }}>Login</a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link" href={{ url('/register') }}>Register</a>
-        </li>
-      </ul>
+      @if (!Auth::check())
+        <ul class="navbar-nav my-2 my-lg-0">
+          <li class="nav-item active">
+            <a class="nav-link" href={{ url('/login') }}>Login</a>
+          </li>
+
+          <li class="nav-item active">
+            <a class="nav-link" href={{ url('/register') }}>Register</a>
+          </li>
+        </ul>
+      @endif
+
+      @if (Auth::check())
+        <ul class="navbar-nav my-2 my-lg-0">
+          <li class="nav-item active">
+            <a class="nav-link" href="#"> {{Auth::user()->name}} </a>
+          </li>
+
+          <li class="nav-item active">
+            <a class="nav-link" href={{ url('/logout') }}>Logout</a>
+          </li>
+        </ul>
+      @endif
 
     </div>
   </nav>
 
-@yield('contenido')
+  @yield('contenido')
 
-<footer style="bottom: 0;
-                width: 100%;
-                height: 4.5rem;">
+  <footer style="bottom: 0;
+  width: 100%;
+  height: 4.5rem;">
   <div class="card-footer text-muted position-absolute">
     <div class="row">
       <div class="col d-sm-12">
@@ -89,10 +104,10 @@
         <a class="logo" href="#"><i class="fab fa-facebook-square "></i></a>
         <a class= "logo" href="#"><i class="fab fa-instagram "></i></a>
       </div>
-    <div class="columna text-small">
-      <p>2020 Espacio del Developer </p>
+      <div class="columna text-small">
+        <p>2020 Espacio del Developer </p>
+      </div>
     </div>
-  </div>
- </footer>
+  </footer>
 </body>
 </html>
