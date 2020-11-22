@@ -1,4 +1,101 @@
 <!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="assets/img/logo.png">
+    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+
+    <!-- ===== CSS ===== -->
+    <link rel="stylesheet" href="{{asset('../assets/css/styles.css')}}">
+
+    <title>Espacio del Developer</title>
+</head>
+
+<body>
+    <header class="header">
+        <a href="#" class="header__logo">Espacio del Developer</a>
+
+        <i class='bx bx-menu header__toggle' id="header-toggle"></i>
+
+        <nav class="nav" id="nav-menu">
+            <div class="nav__content bd-grid">
+                <a href="" class="nav__perfil">
+                    <div class="nav__img">
+                        <img src="assets/img/logo.png" alt="Espacio del Developer">
+                    </div>
+
+                    <div>
+                        <span class="nav__name">Espacio</span>
+                        <span class="nav__name">del Developer</span>
+                    </div>
+                </a>
+
+                <div class="nav__menu">
+                    <ul class="nav__list">
+
+                        <li class="nav__item dropdown">
+                            <a href={{ url('/about') }} class="nav__link dropdown__link">About <i class='bx bx-chevron-down dropdown__icon'></i></a>
+
+
+                            <ul class="dropdown__menu">
+                                <li class="dropdown__item"><a href="#" class="nav__link">RRHH</a></li>
+                                <li class="dropdown__item"><a href="#" class="nav__link">Developers</a></li>
+                                <li class="dropdown__item"><a href={{ url('/projects') }} class="nav__link">Projects</a></li>
+                            </ul>
+                        </li>
+
+                        <!-- <li class="nav__item"><a href="#" class="nav__link">Proyectos </a></li> -->
+
+                        <li class="nav__item dropdown">
+                            <a href={{ url('/blog') }} class="nav__link dropdown__link">Blog <i class='bx bx-chevron-down dropdown__icon'></i></a>
+
+
+                            <ul class="dropdown__menu">
+                                <li class="dropdown__item"><a href="#" class="nav__link">Trainees</a></li>
+                                <li class="dropdown__item"><a href="#" class="nav__link">Junior</a></li>
+                                <!-- <li class="dropdown__item"><a href="#" class="nav__link">Work Awards</a></li> -->
+                            </ul>
+                        </li>
+
+                        <li class="nav__item"><a href={{ url('/contact-us') }} class="nav__link">Contact us </a></li>
+                        <li class="nav__item"><a href={{ url('/login') }} class="nav__link active">Log in </a></li>
+                        <li class="nav__item"><a href={{ url('/register') }} class="nav__link active">Register </a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!--===== MAIN JS =====-->
+    <script src="{{asset('../assets/js/main.js')}}"></script>
+
+    @yield('contenido')
+
+    <footer>
+        <ul class="list-footer">
+            <li><a href={{ url('/about') }}>About</a></li>
+            <li><a href={{ url('/blog') }}>Blog</a></li>
+            <li><a href={{ url('/projects') }}>Projects</a></li>
+            <li><a href={{ url('/contact-us') }}>Contact</a></li>
+        </ul>
+        <div class="social-media">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+        <p class="copyrights">&copy; 2020 Espacio del Developer </p>
+    </footer>
+
+</body>
+
+</html>
+
+<!-- <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
   <meta charset="utf-8">
@@ -7,10 +104,10 @@
   <meta name="author" content="">
   <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
 
-  <title>1º Sprint</title>
+  <title>1º Sprint</title> -->
 
   <!-- Bootstrap core CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
   <style>
   html, body {
@@ -110,4 +207,4 @@
     </div>
   </footer>
 </body>
-</html>
+</html> -->
