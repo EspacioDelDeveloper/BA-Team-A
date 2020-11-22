@@ -61,8 +61,10 @@
                         </li>
 
                         <li class="nav__item"><a href={{ url('/contact-us') }} class="nav__link">Contact us </a></li>
-                        <li class="nav__item"><a href={{ url('/login') }} class="nav__link active">Log in </a></li>
-                        <li class="nav__item"><a href={{ url('/register') }} class="nav__link active">Register </a></li>
+                        @if (!Auth::check()) <li class="nav__item"><a href={{ url('/login') }} class="nav__link active">Log in</a></li> @endif
+                        @if (!Auth::check()) <li class="nav__item"><a href={{ url('/register') }} class="nav__link active">Register</a></li> @endif
+                        @if (Auth::check()) <li class="nav__item"><a href="#" class="nav__link active">{{Auth::user()->name}}</a></li> @endif
+                        @if (Auth::check()) <li class="nav__item"><a href={{ url('/logout') }} class="nav__link active">Logout</a></li> @endif
                     </ul>
                 </div>
             </div>
