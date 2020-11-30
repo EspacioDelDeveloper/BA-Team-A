@@ -1,7 +1,36 @@
 @extends('layouts.headerAndFooter')
 
 @section('contenido')
-<div class="container">
+<div class="l-form">
+    <form action="" class="form">
+        <h1 class="form__title">Registro</h1>
+        <div class="form__div">
+            <input type="text" class="form__input" placeholder=" ">
+            <label for="" class="form__label">Nombre</label>
+        </div>
+        <div class="form__div">
+            <input type="text" class="form__input" placeholder=" ">
+            <label for="" class="form__label">Apellido</label>
+        </div>
+        <div class="form__div">
+            <input type="text" class="form__input" placeholder=" ">
+            <label for="" class="form__label">Email</label>
+        </div>
+        <div class="form__div">
+            <input type="password" class="form__input" placeholder=" ">
+            <label for="" class="form__label">Contraseña</label>
+        </div>
+        <div class="form__div">
+            <input type="password" class="form__input" placeholder=" ">
+            <label for="" class="form__label">Repita Contraseña</label>
+        </div>
+
+        <input type="submit" class="form__button" value="Registrarme">
+        <input type="submit" class="form__button" value="Volver">
+    </form>
+</div>
+
+<!-- <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -73,5 +102,5 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 @endsection

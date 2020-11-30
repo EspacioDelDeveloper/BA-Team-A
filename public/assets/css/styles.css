@@ -11,19 +11,15 @@
     --first-color-light: #ffd900;
     --dark-color: #e42321;
     --white-color: #FBFBFB;
+    --input-color: #80868B;
+    --border-color: #DADCE0;
     /*===== Font and typography =====*/
     --body-font: 'Nunito', sans-serif;
-    --nav-name-font-size: 1.5rem;
-    --normal-font-size: .938rem;
-    /*===== z index =====*/
+    --nav-name-font-size: 20px;
+    --normal-font-size: 18px;
+    --small-font-size: 12px;
+    /*===== z index ===== */
     --z-fixed: 100;
-}
-
-@media screen and (min-width: 768px) {
-     :root {
-        --nav-name-font-size: 1rem;
-        --normal-font-size: 1rem;
-    }
 }
 
 
@@ -36,10 +32,11 @@
 }
 
 body {
-    margin: var(--header-height) 0 0 0;
+    margin-top: var(--header-height);
     font-family: var(--body-font);
     font-size: var(--normal-font-size);
     font-weight: 600;
+    flex-wrap: wrap;
 }
 
 ul {
@@ -288,8 +285,6 @@ a {
 /* ===== FOOTER ===== */
 
 footer {
-    width: 100%;
-    position: fixed;
     bottom: 0;
     background: var(--dark-color);
     display: flex;
@@ -297,6 +292,7 @@ footer {
     flex-direction: column;
     text-align: center;
     color: var(--white-color);
+    align-self: flex-end;
 }
 
 .text {
@@ -382,4 +378,111 @@ footer {
     .text {
         font-size: 10px;
     }
+}
+
+
+/* ===== LOGIN & REGISTER-FORM ===== */
+
+.l-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin-top: var(--header-height);
+}
+
+.form {
+    width: 50vw;
+    padding: 4rem 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 10px 25px rgba(92, 99, 105, .2);
+}
+
+.form__title {
+    font-weight: bold;
+    margin-bottom: 3rem;
+    display: block;
+    font-size: 2.5vw;
+    color: var(--dark-color);
+}
+
+.form__div {
+    position: relative;
+    height: 48px;
+    margin-bottom: 1.5rem;
+}
+
+.form__input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    font-size: var(--normal-font-size);
+    border: 1px solid var(--border-color);
+    border-radius: .5rem;
+    outline: none;
+    padding: 1rem;
+    background: none;
+    z-index: 1;
+}
+
+.form__label {
+    position: absolute;
+    left: 1rem;
+    top: 1rem;
+    padding: 0 .25rem;
+    background-color: #fff;
+    color: var(--input-color);
+    font-size: var(--normal-font-size);
+    transition: .3s;
+}
+
+.form__button {
+    display: inline;
+    margin: auto;
+    margin-top: 0.5em;
+    padding: .75rem;
+    outline: none;
+    border: none;
+    background-color: var(--first-color);
+    color: #fff;
+    font-size: var(--normal-font-size);
+    border-radius: .5rem;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.form__button:hover {
+    box-shadow: 0 10px 36px rgba(0, 0, 0, .15);
+}
+
+
+/*Input focus move up label*/
+
+.form__input:focus+.form__label {
+    top: -.5rem;
+    left: .8rem;
+    color: var(--first-color);
+    font-size: var(--small-font-size);
+    font-weight: 500;
+    z-index: 10;
+}
+
+
+/*Input focus sticky top label*/
+
+.form__input:not(:placeholder-shown).form__input:not(:focus)+.form__label {
+    top: -.5rem;
+    left: .8rem;
+    font-size: var(--small-font-size);
+    font-weight: 500;
+    z-index: 10;
+}
+
+
+/*Input focus*/
+
+.form__input:focus {
+    border: 1.5px solid var(--first-color);
 }

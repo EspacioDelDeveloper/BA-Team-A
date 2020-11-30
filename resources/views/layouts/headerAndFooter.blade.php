@@ -12,9 +12,6 @@
     <link rel="stylesheet" href="{{asset('../assets/css/styles.css')}}">
 
     <title>Espacio del Developer</title>
-</head>
-
-<body>
     <header class="header">
         <a href="#" class="header__logo">Espacio del Developer</a>
 
@@ -70,30 +67,32 @@
             </div>
         </nav>
     </header>
-
+</head>
     <!--===== MAIN JS =====-->
-    <script src="{{asset('../assets/js/main.js')}}"></script>
+    
+<body>
 
-    @yield('contenido')
-
-    <footer>
-        <ul class="list-footer">
-            <li><a href={{ url('/about') }}>About</a></li>
-            <li><a href={{ url('/blog') }}>Blog</a></li>
-            <li><a href={{ url('/projects') }}>Projects</a></li>
-            <li><a href={{ url('/contact-us') }}>Contact</a></li>
-        </ul>
-        <div class="social-media">
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-linkedin"></i></a>
-            <a href="#"><i class="fab fa-facebook"></i></a>
-            <a href="#"><i class="fab fa-youtube"></i></a>
-        </div>
-        <p class="copyrights">&copy; 2020 Espacio del Developer </p>
-    </footer>
-
+@yield('contenido')
+<script src="{{asset('../assets/js/main.js')}}"></script>
 </body>
+
+
+<footer>
+    <ul class="list-footer">
+        <li><a href={{ url('/about') }}>About</a></li>
+        <li><a href={{ url('/blog') }}>Blog</a></li>
+        <li><a href={{ url('/projects') }}>Projects</a></li>
+        <li><a href={{ url('/contact-us') }}>Contact</a></li>
+    </ul>
+    <div class="social-media">
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+    </div>
+    <p class="copyrights">&copy; 2020 Espacio del Developer </p>
+</footer>
 
 </html>
 
@@ -190,7 +189,6 @@
     </div>
   </nav>
 
-  @yield('contenido')
 
   <footer style="bottom: 0;
   width: 100%;
