@@ -1,24 +1,65 @@
 @extends('layouts.headerAndFooter')
 
 @section('contenido')
+
+
 <div class="l-form">
-    <form action="" class="form">
+    <form method="POST" class="form" action="{{ route('login') }}">
+      @csrf
         <h1 class="form__title">Ingresar</h1>
 
         <div class="form__div">
-            <input type="text" class="form__input" placeholder=" ">
-            <label for="" class="form__label">Email</label>
+            {{-- <input type="text" class="form__input" placeholder=" "> --}}
+            <div>
+                <input id="email" type="email" class="form__input @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+
+                @error('email')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            <label for="" class="form__label">E-mail</label>
+          </div>
         </div>
 
         <div class="form__div">
-            <input type="password" class="form__input" placeholder=" ">
-            <label for="" class="form__label">Contraseña</label>
+            {{-- <input type="password" class="form__input" placeholder=" "> --}}
+            <div class="">
+                <input id="password" type="password" class="form__input @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+
+                @error('password')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+                <label for="" class="form__label">Password</label>
+            </div>
+        </div>
+
+
+        <div class="form-group row">
+            <div class="col-md-6 offset-md-4">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+
+                    <label class="form-check-label" for="remember">
+                        {{ __('Remember Me') }}
+                    </label>
+                </div>
+            </div>
         </div>
 
         <input type="submit" class="form__button" value="Entrar">
-        <input type="submit" class="form__button" value="Registrarse">
+        <a href="{{ url('/register') }}"><button type="button" class="form__button">Registrarse</button></a>
+
+        @if (Route::has('password.request'))
+            <a class="btn btn-link" href="{{ route('password.request') }}">
+                {{ __('Forgot Your Password?') }}
+            </a>
+        @endif
+
     </form>
-</div>
+  </div>
 
 
 <!-- <div class="container">

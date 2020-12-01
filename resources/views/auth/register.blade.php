@@ -1,29 +1,77 @@
 @extends('layouts.headerAndFooter')
 
 @section('contenido')
+
+
 <div class="l-form">
-    <form action="" class="form">
+    <form method="POST" class="form" action="{{ route('register') }}">
+      @csrf
         <h1 class="form__title">Registro</h1>
+
         <div class="form__div">
-            <input type="text" class="form__input" placeholder=" ">
+            {{-- <input type="text" class="form__input" placeholder=" "> --}}
+            <div>
+                    <input id="name" type="text" class="form__input @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+
+                    @error('name')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
             <label for="" class="form__label">Nombre</label>
+          </div>
         </div>
+
         <div class="form__div">
-            <input type="text" class="form__input" placeholder=" ">
-            <label for="" class="form__label">Apellido</label>
+            {{-- <input type="text" class="form__input" placeholder=" "> --}}
+            <div>
+                <input id="lastName" type="text" class="form__input @error('lastName') is-invalid @enderror" name="lastName" value="{{ old('lastName') }}" required autocomplete="lastName" autofocus>
+
+                @error('lastName')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+                <label for="" class="form__label">Apellido</label>
+            </div>
         </div>
+
         <div class="form__div">
-            <input type="text" class="form__input" placeholder=" ">
-            <label for="" class="form__label">Email</label>
+            {{-- <input type="email" class="form__input" placeholder=" "> --}}
+            <div>
+                <input id="email" type="email" class="form__input @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+
+                @error('email')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+                <label for="" class="form__label">E-mail</label>
+              </div>
         </div>
+
         <div class="form__div">
-            <input type="password" class="form__input" placeholder=" ">
-            <label for="" class="form__label">Contraseña</label>
+            {{-- <input type="password" class="form__input" placeholder=" "> --}}
+            <div>
+                <input id="password" type="password" class="form__input @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+
+                @error('password')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+                <label for="" class="form__label">Contraseña</label>
+            </div>
         </div>
+
         <div class="form__div">
-            <input type="password" class="form__input" placeholder=" ">
-            <label for="" class="form__label">Repita Contraseña</label>
+            {{-- <input type="password" class="form__input" placeholder=" "> --}}
+            <div>
+                <input id="password-confirm" type="password" class="form__input" name="password_confirmation" required autocomplete="new-password">
+                <label for="" class="form__label">Repita Contraseña</label>
+            </div>
         </div>
+
 
         <input type="submit" class="form__button" value="Registrarme">
         <input type="submit" class="form__button" value="Volver">

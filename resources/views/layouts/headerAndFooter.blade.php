@@ -19,7 +19,7 @@
 
         <nav class="nav" id="nav-menu">
             <div class="nav__content bd-grid">
-                <a href="" class="nav__perfil">
+                <a href="{{ url('/home') }}" class="nav__perfil">
                     <div class="nav__img">
                         <img src="assets/img/logo.png" alt="Espacio del Developer">
                     </div>
@@ -69,10 +69,11 @@
     </header>
 </head>
     <!--===== MAIN JS =====-->
-    
+
 <body>
 
 @yield('contenido')
+
 <script src="{{asset('../assets/js/main.js')}}"></script>
 </body>
 
