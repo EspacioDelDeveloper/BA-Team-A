@@ -293,6 +293,10 @@ footer {
     text-align: center;
     color: var(--white-color);
     align-self: flex-end;
+    position: -webkit-sticky; /* for safari */
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
 }
 
 .text {
