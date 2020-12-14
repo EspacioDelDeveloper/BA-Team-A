@@ -60,6 +60,7 @@ class RegisterController extends Controller
   {
     return Validator::make($data, [
       'name' => ['required', 'string', 'max:255'],
+      'lastName' => ['required', 'string', 'max:255'],
       'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
       'password' => ['required', 'string', 'min:8', 'confirmed'],
     ]);
@@ -75,6 +76,7 @@ class RegisterController extends Controller
   {
     $user = User::create([
       'name' => $data['name'],
+      'lastName' => $data['lastName'],
       'email' => $data['email'],
       'password' => bcrypt($data['password']),
     ]);
@@ -84,8 +86,6 @@ class RegisterController extends Controller
 
   public function usuarioRegistrado()
   {
-    // {{dd("Entra!!");}}
-
     Session::flash('usuarioRegistrado', "¡Bienvenido a nuestro sistema!");
 
     return Redirect::route('home');
