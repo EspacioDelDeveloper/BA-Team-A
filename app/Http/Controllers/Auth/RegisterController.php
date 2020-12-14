@@ -2,18 +2,13 @@
 
 namespace App\Http\Controllers\Auth;
 
-// use App\Http\Controllers\Controller;
-// use App\Providers\RouteServiceProvider;
-// use App\User;
-// use Illuminate\Http\Request;
-// use Illuminate\Foundation\Auth\RegistersUsers;
-// use Illuminate\Support\Facades\Hash;
-// use Illuminate\Support\Facades\Validator;
+use App\Http\Controllers\Controller;
+use App\Providers\RouteServiceProvider;
 use App\User;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Auth\Events\Registered;
 use Session;
 use Redirect;
@@ -38,7 +33,7 @@ class RegisterController extends Controller
   *
   * @var string
   */
-  protected $redirectTo = '/usuarioRegistrado';
+  // protected $redirectTo = '/usuarioRegistrado';
 
   /**
   * Create a new controller instance.
@@ -84,18 +79,22 @@ class RegisterController extends Controller
     return $user;
   }
 
-  public function usuarioRegistrado()
-  {
-    Session::flash('usuarioRegistrado', "¡Bienvenido a nuestro sistema!");
+  public function register(Request $request) {
 
-    return Redirect::route('home');
-  }
+      $this->validator($request->all())->validate();
 
-  public function register(Request $request)
-  {
-    $this->validator($request->all())->validate();
-    event(new Registered($user = $this->create($request->all())));
-    // $this->guard()->login($user);
-    return $this->registered($request, $user) ?: redirect($this->redirectPath());
+      $user = $this->create($request->all());
+
+      if(empty($user)) { // Failed to register user
+          redirect('/register'); // Wherever you want to redirect
+      }
+
+      event(new Registered($user));
+
+      $this->guard()->login($user);
+
+      // Success redirection - which will be attribute `$redirectTo`
+      Session::flash('usuarioRegistrado', "¡Bienvenido al sistema ");
+      return Redirect::route('home');
   }
 }

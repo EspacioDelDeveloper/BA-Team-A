@@ -2,7 +2,7 @@
 @section('contenido')
 
   @if (Session::has('usuarioRegistrado'))
-     <h1 class="alert alert-info" style="color:black; text-align: center;">{{ Session::get('usuarioRegistrado') }}</h1>
+     <h1 class="alert alert-info" style="color:black; text-align: center;">{{Session::get('usuarioRegistrado')}}{{Auth::user()->name}}!</h1>
   @endif
 
   @if (Session::has('loggedOut'))
