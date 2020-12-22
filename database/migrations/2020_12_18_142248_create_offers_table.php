@@ -16,13 +16,13 @@ class CreateOffersTable extends Migration
         Schema::create('offers', function (Blueprint $table) {
             $table->id();
 
-            $table->bigInteger('joboffer_id')->unsigned();
+            $table->bigInteger('user_id')->unsigned();
 
             $table->timestamps();
         });
 
         Schema::table('offers', function($table) {
-            $table->foreign('joboffer_id')->references('id')->on('job_offers')
+            $table->foreign('user_id')->references('id')->on('users')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
 

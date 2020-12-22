@@ -18,8 +18,15 @@ class CreateRolesTable extends Migration
             
            
             $table->enum('name',['ADMINISTRATOR','EDITOR','RECRUITER','DEVELOPER'])->default('EDITOR');
-
+            $table->bigInteger('estado_id')->unsigned();
             $table->timestamps();
+        });
+
+        Schema::table('roles', function($table) {
+              
+                
+            $table->foreign('estado_id')->references('id')->on('estados')
+                ->onUpdate('cascade');
         });
 
         //Relations

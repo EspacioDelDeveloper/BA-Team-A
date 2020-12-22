@@ -47,11 +47,11 @@ class User extends Authenticatable
         return $this->hasMany(Post::class);
     }
 
-    public function developer(){
-        return $this->hasOne(Developer::class);
+    public function offers(){
+        return $this->hasMany(Offer::class);
     }
 
-    public function recruiter(){
-        return $this->hasOne(Recruiter::class);
+    public function projects(){
+        return $this->hasMany(Project::class);
     }
 }

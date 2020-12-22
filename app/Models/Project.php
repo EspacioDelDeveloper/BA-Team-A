@@ -7,10 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class Project extends Model
 {
     //
-    protected $filleable = ['description', 'name', 'slug', 'excerpt', 'image', 'url', 'portfolio_id'];
+    protected $filleable = ['description', 'name', 'slug', 'excerpt', 'image', 'url', 'user_id'];
 
     //Relations
-    public function portfolio(){
-        return $thid->belongsTo(Portfolio::class);
+    public function user(){
+        return $thid->belongsTo(User::class);
     }
 }

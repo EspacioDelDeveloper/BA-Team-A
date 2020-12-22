@@ -19,6 +19,7 @@ class CreatePostsTable extends Migration
 
             $table->bigInteger('user_id')->unsigned();
             $table->bigInteger('category_id')->unsigned();
+            $table->bigInteger('estado_id')->unsigned();
 
             $table->string('name',128);
             $table->string('slug',128)->unique();
@@ -41,6 +42,9 @@ class CreatePostsTable extends Migration
 
             $table->foreign('category_id')->references('id')->on('categories')
                 ->onDelete('cascade')
+                ->onUpdate('cascade');
+
+            $table->foreign('estado_id')->references('id')->on('estados')
                 ->onUpdate('cascade');
         });
     }

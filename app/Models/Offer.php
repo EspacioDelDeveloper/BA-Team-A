@@ -7,11 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 class Offer extends Model
 {
     //
-    protected $filleable=['joboffer_id'];
+    protected $filleable=['user_id'];
 
     //Relations
-    public function joboffer(){
-        return $this->belongsTo(JobOffer::class);
+    public function user(){
+        return $this->belongsTo(User::class);
     }
 
    

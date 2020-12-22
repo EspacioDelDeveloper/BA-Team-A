@@ -9,16 +9,17 @@ use Illuminate\Database\Eloquent\Model;
 class Role extends Model
 {
     //
-    protected $fillable = [
-        'editor',
-        'administrator',
-        'developer',
-        'recruiter',
-    ];
+    protected $fillable = ['name', 'id_estado'];
 
     //Relattions 
-    
-    public function users(){
+    public function users()
+    {
         return $this->hasMany(User::class);
     }
+
+    public function estado(){
+        return $this->belongsTo(Estado::class);
+    }
+    
+    
 }

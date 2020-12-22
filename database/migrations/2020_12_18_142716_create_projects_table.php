@@ -16,7 +16,7 @@ class CreateProjectsTable extends Migration
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
 
-            $table->bigInteger('portfolio_id')->unsigned();
+            $table->bigInteger('user_id')->unsigned();
 
 
             $table->string('name',128);
@@ -36,7 +36,7 @@ class CreateProjectsTable extends Migration
         });
 
         Schema::table('projects', function($table) {
-            $table->foreign('portfolio_id')->references('id')->on('portfolios')
+            $table->foreign('user_id')->references('id')->on('users')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
         });

@@ -17,6 +17,7 @@ class CreateUsersTable extends Migration
             $table->id();
 
             $table->bigInteger('role_id')->unsigned();
+            $table->bigInteger('estado_id')->unsigned();
 
             $table->string('name');
 
@@ -35,7 +36,10 @@ class CreateUsersTable extends Migration
 
         Schema::table('users', function($table) {
             $table->foreign('role_id')->references('id')->on('roles')
-                ->onUpdate('cascade');  
+                ->onUpdate('cascade');
+            
+            $table->foreign('estado_id')->references('id')->on('estados')
+                ->onUpdate('cascade'); 
            
         });
     }

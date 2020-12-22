@@ -24,7 +24,7 @@ class Post extends Model
         return $this->belongsToMany(Tag::class);
     }
 
-    public function recruiters(){
-        return $this->belongsToMany(Recruiter::class);
+    public function estado(){
+        return $this->belongsTo(Estado::class);
     }
 }
