@@ -5,53 +5,83 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Role;
 
 class User extends Authenticatable
 {
-    use Notifiable;
+  use Notifiable;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
-    protected $fillable = [
-        'name', 'lastName', 'email', 'password',
-    ];
+  /**
+  * The attributes that are mass assignable.
+  *
+  * @var array
+  */
+  protected $fillable = [
+    'name', 'lastName', 'email', 'password',
+  ];
 
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
-    protected $hidden = [
-        'password', 'remember_token',
-    ];
+  /**
+  * The attributes that should be hidden for arrays.
+  *
+  * @var array
+  */
+  protected $hidden = [
+    'password', 'remember_token',
+  ];
 
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+  /**
+  * The attributes that should be cast to native types.
+  *
+  * @var array
+  */
+  protected $casts = [
+    'email_verified_at' => 'datetime',
+  ];
 
 
-    //Relations
-    public function role(){
-        return $this->belongsTo(Role::class);
+  //Relations
+  public function roles(){
+    return $this->belongsToMany(Role::class)->withTimestamps();
+  }
+
+  public function posts(){
+    return $this->hasMany(Post::class);
+  }
+
+  // public function developer(){
+  //   return $this->hasOne(Developer::class);
+  // }
+  //
+  // public function recruiter(){
+  //   return $this->hasOne(Recruiter::class);
+  // }
+
+  public function authorizeRoles($roles)
+  {
+    abort_unless($this->hasAnyRole($roles), 401);
+    return true;
+  }
+
+  public function hasAnyRole($roles)
+  {
+    if (is_array($roles)) {
+      foreach ($roles as $role) {
+        if ($this->hasRole($role)) {
+          return true;
+        }
+      }
+    } else {
+      if ($this->hasRole($roles)) {
+        return true;
+      }
     }
-
-    public function posts(){
-        return $this->hasMany(Post::class);
+    return false;
+  }
+  public function hasRole($role)
+  {
+    if ($this->roles()->where('name', $role)->first()) {
+      return true;
     }
-
-    public function offers(){
-        return $this->hasMany(Offer::class);
-    }
-
-    public function projects(){
-        return $this->hasMany(Project::class);
-    }
+    return false;
+  }
 }

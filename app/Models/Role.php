@@ -2,24 +2,15 @@
 
 namespace App;
 
-use Iluminate\Database\Eloquent\Factories\HasFactory;
-
 use Illuminate\Database\Eloquent\Model;
+use App\User;
 
 class Role extends Model
 {
-    //
-    protected $fillable = ['name', 'id_estado'];
 
-    //Relattions 
-    public function users()
-    {
-        return $this->hasMany(User::class);
-    }
 
-    public function estado(){
-        return $this->belongsTo(Estado::class);
-    }
-    
-    
+  public function users()
+  {
+      return $this->belongsToMany(User::class)->withTimestamps();
+  }
 }

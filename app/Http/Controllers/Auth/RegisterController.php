@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\User;
+use App\Role;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
@@ -45,6 +46,11 @@ class RegisterController extends Controller
     $this->middleware('guest');
   }
 
+  public function registerRecruiter()
+  {
+    return view('auth\registerRecruiter');
+  }
+
   /**
   * Get a validator for an incoming registration request.
   *
@@ -69,6 +75,7 @@ class RegisterController extends Controller
   */
   protected function create(array $data)
   {
+
     $user = User::create([
       'name' => $data['name'],
       'lastName' => $data['lastName'],
@@ -76,25 +83,33 @@ class RegisterController extends Controller
       'password' => bcrypt($data['password']),
     ]);
 
+    if($data['role_id'] == 1) {
+      $user->roles()->attach(Role::where('name', 'developer')->first());
+    }
+
+    if($data['role_id'] == 3) {
+      $user->roles()->attach(Role::where('name', 'recruiter')->first());
+    }
+
     return $user;
   }
 
   public function register(Request $request) {
 
-      $this->validator($request->all())->validate();
+    $this->validator($request->all())->validate();
 
-      $user = $this->create($request->all());
+    $user = $this->create($request->all());
 
-      if(empty($user)) { // Failed to register user
-          redirect('/register'); // Wherever you want to redirect
-      }
+    if(empty($user)) { // Failed to register user
+      redirect('/register'); // Wherever you want to redirect
+    }
 
-      event(new Registered($user));
+    event(new Registered($user));
 
-      $this->guard()->login($user);
+    $this->guard()->login($user);
 
-      // Success redirection - which will be attribute `$redirectTo`
-      Session::flash('usuarioRegistrado', "¡Bienvenido al sistema ");
-      return Redirect::route('home');
+    // Success redirection - which will be attribute `$redirectTo`
+    Session::flash('usuarioRegistrado', "¡Bienvenido al sistema ");
+    return Redirect::route('home');
   }
 }

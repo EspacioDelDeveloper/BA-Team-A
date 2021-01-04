@@ -32,7 +32,6 @@
 
                 <div class="nav__menu">
                     <ul class="nav__list">
-
                         <li class="nav__item dropdown">
                             <a href={{ url('/about') }} class="nav__link dropdown__link">About <i class='bx bx-chevron-down dropdown__icon'></i></a>
 
@@ -59,7 +58,8 @@
 
                         <li class="nav__item"><a href={{ url('/contact-us') }} class="nav__link">Contact us </a></li>
                         @if (!Auth::check()) <li class="nav__item"><a href={{ url('/login') }} class="nav__link active">Log in</a></li> @endif
-                        @if (!Auth::check()) <li class="nav__item"><a href={{ url('/register') }} class="nav__link active">Register</a></li> @endif
+                        @if (!Auth::check()) <li class="nav__item"><a href={{ url('/register') }} class="nav__link active">New Dev</a></li> @endif
+                        @if (!Auth::check()) <li class="nav__item"><a href={{ url('/registerRecruiter') }} class="nav__link active">New Recruiter</a></li> @endif
                         @if (Auth::check()) <li class="nav__item"><a href="#" class="nav__link active">{{Auth::user()->name}}</a></li> @endif
                         @if (Auth::check()) <li class="nav__item"><a href={{ url('/logout') }} class="nav__link active">Logout</a></li> @endif
                     </ul>

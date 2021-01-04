@@ -2,14 +2,14 @@
 
 @section('contenido')
 
-<h1 style="color:black; text-align: center;">Registrar nuevo developer</h1>
+<h1 style="color:black; text-align: center;">Registrar nuevo reclutador</h1>
 
 <div class="l-form">
-    <form method="POST" class="form" action="{{ route('register') }}">
+    <form method="POST" class="form" action="{{ route('registerRecruiter') }}">
       @csrf
         <h1 class="form__title">Registro</h1>
 
-        <input type="hidden" name="role_id" id="role_id" value="1">
+        <input type="hidden" name="role_id" id="role_id" value="3">
 
         <div class="form__div">
             {{-- <input type="text" class="form__input" placeholder=" "> --}}

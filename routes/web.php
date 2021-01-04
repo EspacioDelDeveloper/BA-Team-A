@@ -23,8 +23,9 @@ Route::get('/blog', 'BlogController@blog')->name('blog');
 Route::get('/about', 'AboutController@about')->name('about');
 Route::get('/contact-us', 'ContactController@contactUs')->name('contactUs');
 
-Route::get('/usuarioRegistrado', 'Auth\RegisterController@usuarioRegistrado')->name('usuarioRegistrado');
-
 Auth::routes();
+
+Route::get('/registerRecruiter', 'Auth\RegisterController@registerRecruiter')->name('registerRecruiter');
+Route::post('/registerRecruiter', 'Auth\RegisterController@register')->name('register');
 
 Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
